@@ -10,10 +10,14 @@ that integer to "a" and take modulus "b", have them send you this, then raise th
 "b" to get the original integer, then convert that back to the original character. 
 
 The product of your two prime numbers must be greater than the largest value you wish to encrypt,
-e.g. if you wish to use the values 1-100 to represent the characters in your message, your prime numbers must multiply
+e.g. if you wish to use the values 0-100 to represent the characters in your message, your prime numbers must multiply
 to something greater than 100. The simplest reason for this is that the final step of decryption uses the product of your
 two prime numbers as the argument for taking a modulus, and the result from this (decrypted value) cannot be greater than
-the argument of the modulus - 1.
+the argument - 1, e.g. if you used 7 and 13 as your prime numbers you would have an argument of 7 * 13 = 91, which means
+you could only get values from 0-90 after decrypting.
+
+Note: this script is meant for understanding how rsa keys are generated and is not intended for practical use, and that
+in practice you would want the product of your two prime numbers to be very large (often 1024 bits minimum).
 """
 
 
