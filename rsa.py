@@ -4,15 +4,16 @@ import random
 """
 Creates RSA keys from two prime numbers.
 
-The product of your two prime numbers must be greater than the number of numerical values you wish to encrypt,
-e.g. if you had 100 possible values, your prime numbers must multiply to something greater than 100. This is because
-the product will be used as the argument for taking the modulus, and the modulus cannot be greater than the 
-argument of the modulus - 1.
-
 A public and private key will be generated, such as "Public key (a, b)" and "Private key (x, b)". To send a message,
 send the person you wish to communicate with the public key, have them convert their character to an integer, raise
 that integer to "a" and take modulus "b", have them send you this, then raise that to "x" and take modulus
 "b" to get the original integer, then convert that back to the original character. 
+
+The product of your two prime numbers must be greater than the largest value you wish to encrypt,
+e.g. if you wish to use the values 1-100 to represent the characters in your message, your prime numbers must multiply
+to something greater than 100. The simplest reason for this is that the final step of decryption uses the product of your
+two prime numbers as the argument for taking a modulus, and the result from this (decrypted value) cannot be greater than
+the argument of the modulus - 1.
 """
 
 
