@@ -32,14 +32,13 @@ def get_factors(x):
 
 def is_prime(x):
     """Returns True or False depending on if the number is prime."""
-    x = abs(x)
     if x == 0 or x == 1:
         return False
     if x == 2 or x == 3:
         return True
     if x % 2 == 0:
         return False
-    for num in range(2, int(x / 2)):
+    for num in range(3, int(x / 2)):
         if x % num == 0:
             return False
     return True
