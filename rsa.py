@@ -27,6 +27,7 @@ def get_factors(x):
     for num in range(1, x + 1):
         if x % num == 0:
             factors.append(num)
+
     return factors
 
 
@@ -34,13 +35,17 @@ def is_prime(x):
     """Returns True or False depending on if the number is prime."""
     if x == 0 or x == 1:
         return False
+
     if x == 2 or x == 3:
         return True
+
     if x % 2 == 0:
         return False
+
     for num in range(3, int(x / 2)):
         if x % num == 0:
             return False
+
     return True
 
 
@@ -49,14 +54,17 @@ while True:
     q = abs(int(input("Enter the second prime number (must be different): ")))
     if (is_prime(p) and is_prime(q)) and (p != q) and (p > 3 or q > 3):
         break
+
     if is_prime(p) and not is_prime(q):
         print(f"{q} is not prime.")
     elif not is_prime(p) and is_prime(q):
         print(f"{p} is not prime.")
     elif not is_prime(p) and not is_prime(q):
         print(f"{p} and {q} are not prime.")
+
     if p == q:
         print("Numbers must be different")
+
     if p <= 3 and q <= 3:
         print("At least one of the numbers must have an absolute value greater than 3.")
 
