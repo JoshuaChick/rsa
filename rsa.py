@@ -50,23 +50,27 @@ def is_prime(x):
 
 
 while True:
-    p = abs(int(input("Enter the first prime number: ")))
-    q = abs(int(input("Enter the second prime number (must be different): ")))
-    if (is_prime(p) and is_prime(q)) and (p != q) and (p > 3 or q > 3):
+    p = int(input("Enter the first prime number: "))
+    if p < 0:
+        print('Input must be positive.\n')
+    elif not is_prime(p):
+        print('Input not prime.\n')
+    else:
         break
 
-    if is_prime(p) and not is_prime(q):
-        print(f"{q} is not prime.")
-    elif not is_prime(p) and is_prime(q):
-        print(f"{p} is not prime.")
-    elif not is_prime(p) and not is_prime(q):
-        print(f"{p} and {q} are not prime.")
+while True:
+    q = int(input("Enter the second prime number (must be different): "))
+    if q < 0:
+        print('Input must be positive.\n')
+    elif not is_prime(q):
+        print('Input is not prime.\n')
+    elif q == p:
+        print('The second number must be different from the first.\n')
+    elif p <= 3 and q <= 3:
+        print('If the first number was less than or equal to 3, the second must be greater.\n')
+    else:
+        break
 
-    if p == q:
-        print("Numbers must be different")
-
-    if p <= 3 and q <= 3:
-        print("At least one of the numbers must have an absolute value greater than 3.")
 
 N = p * q
 phi_N = (p - 1) * (q - 1)
